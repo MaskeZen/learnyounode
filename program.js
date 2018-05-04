@@ -12,9 +12,17 @@ let fs = require('fs')
 
 // console.log(sum)
 
-// learnyounode_03
 // MY FIRST I/O! (Exercise 3 of 13) 
-let file = process.argv[2]
-let buffer = fs.readFileSync(file)
-let size = buffer.toString().split('\n').length - 1
-console.log(size)
+// let file = process.argv[2]
+// let buffer = fs.readFileSync(file)
+// let size = buffer.toString().split('\n').length - 1
+// console.log(size)
+
+// MY FIRST ASYNC I/O! (Exercise 4 of 13)
+fs.readFile(process.argv[2], (err, data) => {
+    if (err) {
+        console.error('ocurrió un error inesperado!')
+        return
+    }
+    console.log(data.toString().split('\n').length - 1)
+})
