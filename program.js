@@ -1,5 +1,6 @@
 // import fs from "fs";
 let fs = require('fs')
+let path = require('path')
 
 // learnyounode_01
 // console.log("HELLO WORLD")
@@ -19,10 +20,24 @@ let fs = require('fs')
 // console.log(size)
 
 // MY FIRST ASYNC I/O! (Exercise 4 of 13)
-fs.readFile(process.argv[2], (err, data) => {
+// fs.readFile(process.argv[2], (err, data) => {
+//     if (err) {
+//         console.error('ocurrió un error inesperado!')
+//         return
+//     }
+//     console.log(data.toString().split('\n').length - 1)
+// })
+
+// FILTERED LS (Exercise 5 of 13)
+let ext = process.argv[3]
+let dir = process.argv[2]
+fs.readdir(dir, (err, files) => {
     if (err) {
-        console.error('ocurrió un error inesperado!')
-        return
+        return console.error('ocurrió un error inesperado!')
     }
-    console.log(data.toString().split('\n').length - 1)
+    files.forEach(f => {
+        if (path.extname(f) === '.' + ext) {
+            console.log(f)
+        }
+    })
 })
