@@ -1,6 +1,6 @@
 // import fs from "fs";
-let fs = require('fs')
-let path = require('path')
+// let fs = require('fs')
+// let path = require('path')
 
 // learnyounode_01
 // console.log("HELLO WORLD")
@@ -43,12 +43,26 @@ let path = require('path')
 // })
 
 // MAKE IT MODULAR (Exercise 6 of 13)  
-let module06 = require('./module_06')
-let ext = process.argv[3]
-let dir = process.argv[2]
-module06(dir, ext, (err, files) => {
-    if (err) {
-        return console.error(err)
-    }
-    files.forEach(f => console.log(f))
-})
+// let module06 = require('./module_06')
+// let ext = process.argv[3]
+// let dir = process.argv[2]
+// module06(dir, ext, (err, files) => {
+//     if (err) {
+//         return console.error(err)
+//     }
+//     files.forEach(f => console.log(f))
+// })
+
+// HTTP CLIENT (Exercise 7 of 13)  
+let exercise7 = (url) => {
+    let http = require('http')
+    
+    let respuesta = ''
+    http.get(url, res => {
+        res.setEncoding('utf8')
+        res.on('data', data => {
+            console.log(data)
+        })
+    })
+}
+exercise7(process.argv[2])
