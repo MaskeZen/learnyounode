@@ -29,15 +29,26 @@ let path = require('path')
 // })
 
 // FILTERED LS (Exercise 5 of 13)
+// let ext = process.argv[3]
+// let dir = process.argv[2]
+// fs.readdir(dir, (err, files) => {
+//     if (err) {
+//         return console.error('ocurrió un error inesperado!')
+//     }
+//     files.forEach(f => {
+//         if (path.extname(f) === '.' + ext) {
+//             console.log(f)
+//         }
+//     })
+// })
+
+// MAKE IT MODULAR (Exercise 6 of 13)  
+let module06 = require('./module_06')
 let ext = process.argv[3]
 let dir = process.argv[2]
-fs.readdir(dir, (err, files) => {
+module06(dir, ext, (err, files) => {
     if (err) {
-        return console.error('ocurrió un error inesperado!')
+        return console.error(err)
     }
-    files.forEach(f => {
-        if (path.extname(f) === '.' + ext) {
-            console.log(f)
-        }
-    })
+    files.forEach(f => console.log(f))
 })
