@@ -65,4 +65,24 @@ let exercise7 = (url) => {
         })
     })
 }
-exercise7(process.argv[2])
+// exercise7(process.argv[2])
+
+// HTTP COLLECT (Exercise 8 of 13)
+let exercise8 = (url) => {
+    let http = require('http')
+    let bl = require('bl')
+
+    let respuesta = ''
+    http.get(url, res => {
+        // res.setEncoding('utf8')
+        res.pipe(bl(function (err, data) {
+            if (err) {
+                console.error(err)
+            }
+            respuesta = data.toString()
+            console.log(respuesta.length)
+            console.log(respuesta)
+        }))
+    })    
+}
+exercise8(process.argv[2])
