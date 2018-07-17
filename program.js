@@ -85,4 +85,37 @@ let exercise8 = (url) => {
         }))
     })    
 }
-exercise8(process.argv[2])
+// exercise8(process.argv[2])
+
+// JUGGLING ASYNC (Exercise 9 of 13) 
+let exercise9 = (urls) => {
+    let http = require('http')
+    let bl = require('bl')
+
+    let dataBin = []
+    let urlCount = 0
+
+    let printData = () => {
+        dataBin.forEach(d => console.log(d))
+    }
+    
+    let getUrl = i => {
+        http.get(urls[i], res => {
+            res.pipe(bl(function (err, data) {
+                if (err) {
+                    console.error(err)
+                }
+                dataBin[i] = (data.toString())
+                ++urlCount
+                if (urlCount === urls.length) {
+                    printData()
+                }
+            }))
+        })
+    }
+
+    for (let i = 0; i < urls.length; i++) {
+        getUrl(i)
+    }
+}
+exercise9(process.argv.slice(2))
