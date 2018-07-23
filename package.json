@@ -1,0 +1,30 @@
+{
+  "name": "learnyounode_test",
+  "version": "1.0.0",
+  "description": "Pruebas de learnyounode",
+  "main": "program.js",
+  "dependencies": {
+    "bl": "^2.0.1",
+    "concat-stream": "^1.6.2",
+    "strftime": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaskeZen/learnyounode.git"
+  },
+  "keywords": [
+    "learnyounode",
+    "node",
+    "nodeschool"
+  ],
+  "author": "MaskeZen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaskeZen/learnyounode/issues"
+  },
+  "homepage": "https://github.com/MaskeZen/learnyounode#readme"
+}

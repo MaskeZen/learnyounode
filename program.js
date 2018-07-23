@@ -118,4 +118,18 @@ let exercise9 = (urls) => {
         getUrl(i)
     }
 }
-exercise9(process.argv.slice(2))
+// exercise9(process.argv.slice(2))
+
+// TIME SERVER (Exercise 10 of 13)  
+let exercise10 = (port) => {
+    let net = require('net')
+    let strftime = require('strftime')
+    let eol = require('os').EOL;
+
+    let server = net.createServer(socket => {
+        socket.write(strftime('%F %H:%M', new Date()) + eol)
+        socket.end()
+    })
+    server.listen(port)
+}
+exercise10(process.argv[2])
