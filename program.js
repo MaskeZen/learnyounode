@@ -132,4 +132,16 @@ let exercise10 = (port) => {
     })
     server.listen(port)
 }
-exercise10(process.argv[2])
+// exercise10(process.argv[2])
+
+// HTTP FILE SERVER (Exercise 11 of 13) 
+let exercise11 = (port, filePath) => {
+    let http = require('http')
+    let fs = require('fs')
+    let server = http.createServer((req, res) => {
+        file = fs.createReadStream(filePath)
+        file.pipe(res)
+    })
+    server.listen(port)
+}
+exercise11(process.argv[2], process.argv[3])
